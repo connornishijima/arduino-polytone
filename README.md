@@ -60,17 +60,17 @@ Here is what you need to get started with the bare minimum:
 ----------
 # Functions
 
-**Volume vol**;
+**Polytone poly**;
 
-This initializes the Volume library after import. "vol" can be any word you want, as long as it's reflected in the rest of your code.
+This initializes the Polytone library after import. "poly" can be any word you want, as long as it's reflected in the rest of your code.
 
-**vol.begin**();
+**poly.begin**();
 
-This sets up a Timer Compare Interrupt on Timer1 for the tone frequencies. (You won't hear anything until a `vol.tone()` is called.)
+This sets up a Timer Compare Interrupt on Timer1 for software polling. (You won't hear anything until a `poly.tone() or poly.note()` is called.)
 
-**vol.setMasterVolume**(float **percentage**);
+**poly.tone**(unsigned int **frequency** [, unsigned long **duration** [, byte **voice**]]);
 
-This is a multiplier applied to the volume of any tones played. By default this is 1.00 - a value of 0.34 would make all tones 34% of their programmed volume;
+This is used to start generating a frequency on an open voice pin, or the oldest if we ran out of voices. Optional arguments are duration (infinite if not specified) and the specific voice to generate the tone on.
 
 **vol.tone**(unsigned int **frequency**, byte **volume**);
 
