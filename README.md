@@ -1,15 +1,12 @@
 #Arduino Polytone Library
 
-Ever needed a project to play a tone through a speaker or piezo that *wasn't* blisteringly loud? You can bring the volume down with a resistor, but what if you needed a loud alert beep at some point as well?
-
-**Now it's no longer an issue.** :) Using ultra-fast PWM, the Volume library allows the speaker itself to act as an RC filter to produce *smooth* (8-bit) analog-like volume control.
+Ever needed a project to play more than ONE tone at once? Using ultra-fast timer interrupt polling, the Polytone library allows an Arduino to generate up to four notes at once!
 
 ----------
 # Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Functions](#functions)
-- [Supported Pins](#supported-pins)
 - [Limitations](#limitations)
 - [Contributing](#contributing)
 - [License and credits](#license-and-credits)
@@ -20,27 +17,25 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 **With Arduino Library Manager:**
 
 1. Open *Sketch > Include Library > Manage Libraries* in the Arduino IDE.
-2. Search for "Volume", (look for "Connor Nishijima") and select the latest version.
+2. Search for "Polytone", (look for "Connor Nishijima") and select the latest version.
 3. Click the Install button and Arduino will prepare the library and examples for you!
 
 **Manual Install:**
 
-1. Click "Clone or Download" above to get an "arduino-volume-master.zip" file.
+1. Click "Clone or Download" above to get an "arduino-polytone-master.zip" file.
 2. Extract it's contents to the libraries folder in your sketchbook.
-3. Rename the folder from "arduino-volume-master" to "Volume".
+3. Rename the folder from "arduino-polytone-master" to "Polytone".
 
 ----------
 # Usage
 
-Using the volume-controlled `vol.tone()` function looks very similar to the Arduino `tone()`, but the function arguments are very different:
+Using the `poly.tone()` function looks very similar to the Arduino `tone()`, but the function arguments are very different:
 
 **Arduino:**
  - **tone**(unsigned int **pin**, unsigned int **frequency**);
 
-**Volume:**
- - vol.**tone**(unsigned int **frequency**, byte **volume**);
-
-Volume control is limited to certain pins. See [Supported Pins](#supported-pins).
+**Polytone:**
+ - poly.**tone**(unsigned int **frequency**, [unsigned long **duration**, [byte **voice**]]);
 
 ----------
 Here is what you need to get started with the bare minimum:
