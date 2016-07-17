@@ -1,0 +1,26 @@
+###################################
+# Syntax Coloring Map for Polytone
+###################################
+
+###################################
+# Datatypes (KEYWORD1)
+###################################
+
+###################################
+# Methods and Functions (KEYWORD2)
+###################################
+
+begin	KEYWORD2
+end	KEYWORD2
+setTuning	KEYWORD2
+setPins	KEYWORD2
+tone	KEYWORD2
+note	KEYWORD2
+stopVoice	KEYWORD2
+stopFrequency	KEYWORD2
+stopPin	KEYWORD2
+stopAll	KEYWORD2
+
+###################################
+# Constants (LITERAL1)
+###################################
