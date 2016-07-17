@@ -72,30 +72,25 @@ This sets up a Timer Compare Interrupt on Timer1 for software polling. (You won'
 
 This is used to start generating a frequency on an open voice pin, or the oldest if we ran out of voices. Optional arguments are duration (infinite if not specified) and the specific voice to generate the tone on.
 
-**vol.tone**(unsigned int **frequency**, byte **volume**);
+**poly.note**(byte **n** [, unsigned long **duration** [, byte **voice**]]);
 
-*This is where the magic happens.* At the frequency you specify, your Arduino will analogWrite(**volume**) to the speaker with a PWM frequency of 62.5KHz, for half the duration of a single period of the **frequency** before pulling it `LOW`. (Using Timer1 compare-match interrupts to maintain the input frequency) This high-speed PWM is beyond your range of hearing, (and probably the functioning range of your speaker) so it will just sound like a quieter or louder version of the input frequency!
+This is an alternative to poly.tone() that accepts notes numbers instead: n = piano key number 1-88.
 
-**vol.fadeOut**(unsigned int **duration**);
+**poly.setTuning**(float **tune**);
 
-This will cause the currently playing tone to fade out over the **duration** specified in milliseconds.
+Used to pitch output up or down, in case it's sharp or flat.
 
-**vol.noTone**();
+**poly.stopVoice**(byte **voice**);
 
-This is identical in function to the standard `noTone()` function, this stops any currently playing tones.
+Stops tone production of a voice (1 -> 4)
 
-**vol.delay**();   **vol.delayMicroseconds**();
-**vol.millis**();   **vol.micros**();
+**poly.stopFrequency**(byte **frequency**);
 
-These are replacements to the standard time-keeping Arduino functions designed to compensate for the changes in the Timer0 clock divisor. See [Limitations](#limitations).
+Stops tone production on all voices with a matching frequency
 
-**vol.end**();
+**poly.stopPin**(byte **pin**);
 
-This stops any currently playing tones, and resets Timer0 to it's default functionality. Creative use of `vol.begin()` and `vol.end()` can usually resolve conflicts with other libraries or functions that might need Timer0 (volume) or Timer1 (frequency) to be in their usual settings.
-
-**vol.alternatePin**(bool **enabled**);
-
-This causes the AVR to use the ALTERNATE_PIN defined in the [Supported Pins](#supported-pins) section for sound production.
+Stops tone production on an Arduino pin.
 
 ----------
 # Supported Pins
