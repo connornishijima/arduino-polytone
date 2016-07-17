@@ -32,10 +32,10 @@ Ever needed a project to play more than ONE tone at once? Using ultra-fast timer
 Using the `poly.tone()` function looks very similar to the Arduino `tone()`, but the function arguments are very different:
 
 **Arduino:**
- - **tone**(unsigned int **pin**, unsigned int **frequency**);
+ - **tone**(unsigned int **pin**, unsigned int **frequency** [, unsigned long **duration**]);
 
 **Polytone:**
- - poly.**tone**(unsigned int **frequency**, [unsigned long **duration**, [byte **voice**]]);
+ - poly.**tone**(unsigned int **frequency** [, unsigned long **duration** [, byte **voice**]]);
 
 ----------
 Here is what you need to get started with the bare minimum:
