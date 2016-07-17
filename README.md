@@ -48,8 +48,8 @@ Here is what you need to get started with the bare minimum:
       poly.begin(); // Set up polling timer interrupt
       poly.setPins(4,5); // Connect pins 4-5 to positive terminal of speaker/piezo
 
-      poly.tone(262);
-      poly.tone(440);
+      poly.tone(262); // generates 262Hz on voice 0 (pin 4)
+      poly.tone(440); // generates 440Hz on voice 1 (pin 5)
       delay(1000);
 
       poly.end();
