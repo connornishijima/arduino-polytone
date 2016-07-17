@@ -93,19 +93,6 @@ Stops tone production on all voices with a matching frequency
 Stops tone production on an Arduino pin.
 
 ----------
-# Supported Pins
-
-By default, the library uses DEFAULT_PIN for the speaker, *(changes from board to board due to Timer0 channels)* but if you need this pin for digitalWrite's, you can call *vol.alternatePin(**true**)* to use ALTERNATE_PIN instead.
-
-| Board                           | DEFAULT_PIN | ALTERNATE_PIN | Tested |
-|---------------------------------|-------------|---------------|--------|
-| (**Uno**) ATmega168/328(pb)     | 5           | 6             | YES    |
-| (**Mega**) ATmega1280/2560      | 4           | 13            | YES    |
-| (**Leo/Micro**) ATmega16u2/32u4 | 9           | 10            | YES*   |
-
-*I recently killed my only ATmega32u4 board while stripping it for low-power usage and don't have one to test current releases of the library. If anyone who has a working one wants to report compatibility back to me, please do so as I've only tested the initial release!
-
-----------
 # Limitations
 Unfortunately, cheating the Arduino's normal functions in this way means we'll lose some of them. This is also still a proof-of-concept library at this point, so it may break more functionality than I'm aware of. Sorry!
 
