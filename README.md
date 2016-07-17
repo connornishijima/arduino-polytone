@@ -40,27 +40,22 @@ Using the `poly.tone()` function looks very similar to the Arduino `tone()`, but
 ----------
 Here is what you need to get started with the bare minimum:
 
-    #include "Volume.h" // Include the Volume library
+    #include "Polytone.h" // Include the Polytone library
 
-    Volume vol; // Plug your speaker into the default pin for your board type:
-    // https://github.com/connornishijima/arduino-volume#supported-pins
+    Polytone poly;
 
     void setup() {
-      vol.begin();
+      poly.begin(); // Set up polling timer interrupt
+      poly.setPins(4,5); // Connect pins 4-5 to positive terminal of speaker/piezo
+
+      poly.tone(262);
+      poly.tone(440);
+      delay(1000);
+
+      poly.end();
     }
     void loop() {
-      byte volumes[4] = {255, 127, 12, 0};   // List of volumes: 100% Volume, 50% Volume, 5% Volume, 0% Volume
-      for (int i = 0; i < 4; i++) { // Iterate through volume list one second at a time
-        vol.tone(440, volumes[i]);
-        vol.delay(1000);
-      }
-
-      vol.tone(880, 255); // 100% Volume
-      vol.fadeOut(5000);  // Start a 5 second fade out
-      vol.delay(5000);    // Wait for this fade to finish
     }
-
-Of course, you can set the volume to any value between 0 and 255 you'd like, for full 8-bit volume fades.
 
 ----------
 # Functions
