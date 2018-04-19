@@ -1,4 +1,4 @@
-#Arduino Polytone Library
+# Arduino Polytone Library
 
 Ever needed a project to play more than ONE tone at once? Using ultra-fast timer interrupt polling, the Polytone library allows an Arduino to generate up to four notes at once!
 
